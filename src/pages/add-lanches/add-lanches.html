@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Adicionar novo lanche</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Preço</ion-label>
+        <ion-input type="tel" [(ngModel)]="preco"></ion-input>
+    </ion-item>
+
+    <br/>
+
+    <button ion-button full (click)="addItem()">Adicionar</button>
+
+
+</ion-content>
