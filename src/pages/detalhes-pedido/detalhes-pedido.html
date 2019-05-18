@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Detalhes do pedido</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div *ngFor="let dados of pedido">
+        <ion-card>
+            <ion-card-title padding>
+                <h2 text-center>Pedido de {{getUsuario(dados.usuario)}}</h2>
+            </ion-card-title>
+            <ion-card-content text-center>
+                <ion-item>
+                    <ion-label>Status</ion-label>
+                    <ion-select [(ngModel)]="status_pedido" placeholder="Selecione">
+                        <ion-option value="Recebido">Recebido</ion-option>
+                        <ion-option value="Fazendo">Fazendo</ion-option>
+                        <ion-option value="Pronto">Pronto</ion-option>
+                        <ion-option value="Entregue">Entregue</ion-option>
+                    </ion-select>
+                </ion-item>
+
+                <button ion-button (click)="altera_status_pedido(dados.id_pedido)">Mudar status</button>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-content>
+                <ion-list mode="md">
+                    <button ion-item *ngFor="let dados_items of lista_pedido"
+                            (click)="dados_items.observacao.length > 0 ? toggleMarcacao(dados_items) : ''">
+                        <h2>{{dados_items.quantidade}} de {{dados_items.nome}}</h2>
+                        <p>{{dados_items.descricao}}</p>
+                        <h3>Total: {{dados_items.preco_total | currency:'BRL':'symbol':'0.2-2':'pt'}}</h3>
+                        <ion-note *ngIf="dados_items.observacao.length > 0 " item-end icon-only>
+                            <ion-icon [name]="dados_items.icon"></ion-icon>
+                        </ion-note>
+
+                        <div *ngIf="dados_items.showDetalhes">
+
+                            <br/>
+
+                            <span>Observações do item: </span> <br>
+
+                            <p text-wrap>{{dados_items.observacao}}</p>
+
+                        </div>
+
+                    </button>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-content>
+                <h2 text-center>Total do pedido: {{dados.total_pedido | currency:'BRL':'symbol':'0.2-2':'pt'}}</h2>
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+
+</ion-content>
