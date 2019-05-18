@@ -7,10 +7,10 @@
 <ion-content padding>
 
     <ion-list>
-        <button ion-item *ngFor="let dados of items" (click)="detalhesLanche()">
+        <button ion-item *ngFor="let dados of items" (click)="detalhesLanche(dados)">
             <h2>{{dados.nome}}</h2>
             <p text-wrap>{{dados.descricao}}</p>
-            <ion-note item-right>{{dados.preco}}</ion-note>
+            <ion-note item-right>{{dados.preco | currency:'BRL':'symbol':'0.2-2':'pt'}}</ion-note>
         </button>
     </ion-list>
 

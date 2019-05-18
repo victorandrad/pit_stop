@@ -7,5 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-    Teste
+    <ion-list>
+        <button ion-item *ngFor="let dados of pedidos.reverse()" (click)="detalhePedido(dados)">
+            <h2>Pedido de {{getUsuario(dados.usuario)}}</h2>
+            <p>Status: {{dados.status}}</p>
+        </button>
+    </ion-list>
 </ion-content>

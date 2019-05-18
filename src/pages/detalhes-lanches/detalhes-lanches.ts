@@ -7,11 +7,14 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 })
 export class DetalhesLanchesPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    item: any = [];
+
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
-
+        this.item = [this.navParams.get('item')];
     }
 
 }

@@ -3,6 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 
+import {registerLocaleData} from "@angular/common";
+import localePt from '@angular/common/locales/pt';
 import {AboutPage} from '../pages/about/about';
 import {ContactPage} from '../pages/contact/contact';
 import {HomePage} from '../pages/home/home';
@@ -11,6 +13,10 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {AddLanchesPage} from "../pages/add-lanches/add-lanches";
 import {DetalhesLanchesPage} from "../pages/detalhes-lanches/detalhes-lanches";
+import {DetalhesPedidoPage} from "../pages/detalhes-pedido/detalhes-pedido";
+import {FileChooser} from "@ionic-native/file-chooser";
+
+registerLocaleData(localePt);
 
 @NgModule({
     declarations: [
@@ -20,7 +26,8 @@ import {DetalhesLanchesPage} from "../pages/detalhes-lanches/detalhes-lanches";
         HomePage,
         TabsPage,
         AddLanchesPage,
-        DetalhesLanchesPage
+        DetalhesLanchesPage,
+        DetalhesPedidoPage
     ],
     imports: [
         BrowserModule,
@@ -34,12 +41,14 @@ import {DetalhesLanchesPage} from "../pages/detalhes-lanches/detalhes-lanches";
         HomePage,
         TabsPage,
         AddLanchesPage,
-        DetalhesLanchesPage
+        DetalhesLanchesPage,
+        DetalhesPedidoPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        FileChooser
     ]
 })
 export class AppModule {

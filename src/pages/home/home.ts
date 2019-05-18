@@ -31,17 +31,13 @@ export class HomePage {
                 this.items.push(data.val());
             });
         });
-
-        await console.log(this.items);
     }
 
     addLanches() {
-
         this.navCtrl.push(AddLanchesPage);
-
     }
 
-    detalhesLanche() {
-        this.navCtrl.push(DetalhesLanchesPage);
+    detalhesLanche(item) {
+        this.navCtrl.push(DetalhesLanchesPage, {item: item});
     }
 }
