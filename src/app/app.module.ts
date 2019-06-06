@@ -15,6 +15,7 @@ import {AddLanchesPage} from "../pages/add-lanches/add-lanches";
 import {DetalhesLanchesPage} from "../pages/detalhes-lanches/detalhes-lanches";
 import {DetalhesPedidoPage} from "../pages/detalhes-pedido/detalhes-pedido";
 import {FileChooser} from "@ionic-native/file-chooser";
+import {EditarLanchePage} from "../pages/editar-lanche/editar-lanche";
 
 registerLocaleData(localePt);
 
@@ -27,7 +28,8 @@ registerLocaleData(localePt);
         TabsPage,
         AddLanchesPage,
         DetalhesLanchesPage,
-        DetalhesPedidoPage
+        DetalhesPedidoPage,
+        EditarLanchePage
     ],
     imports: [
         BrowserModule,
@@ -42,7 +44,8 @@ registerLocaleData(localePt);
         TabsPage,
         AddLanchesPage,
         DetalhesLanchesPage,
-        DetalhesPedidoPage
+        DetalhesPedidoPage,
+        EditarLanchePage
     ],
     providers: [
         StatusBar,

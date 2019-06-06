@@ -21,7 +21,7 @@
             <br/>
 
             <ion-col col-12 text-center>
-                <button ion-button full>Editar item</button>
+                <button ion-button full (click)="editarLanche(dados)">Editar item</button>
                 <br/>
                 <button ion-button full color="danger" (click)="apagarLanche(dados.id_lanche)">Apagar item</button>
             </ion-col>

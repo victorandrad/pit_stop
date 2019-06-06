@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import * as firebase from 'firebase';
+import {EditarLanchePage} from "../editar-lanche/editar-lanche";
 
 @Component({
     selector: 'page-detalhes-lanches',
@@ -38,5 +39,9 @@ export class DetalhesLanchesPage {
 
             ]
         }).present();
+    }
+
+    editarLanche(item) {
+        this.navCtrl.push(EditarLanchePage, {item: item});
     }
 }
