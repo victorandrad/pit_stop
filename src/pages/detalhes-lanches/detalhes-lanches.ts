@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import * as firebase from 'firebase';
 
 @Component({
     selector: 'page-detalhes-lanches',
@@ -8,13 +9,34 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 export class DetalhesLanchesPage {
 
     item: any = [];
+    rfence = firebase.database().ref('lanches/');
 
     constructor(public navCtrl: NavController,
-                public navParams: NavParams) {
+                public navParams: NavParams,
+                public alert: AlertController) {
     }
 
     ionViewDidLoad() {
         this.item = [this.navParams.get('item')];
     }
 
+    apagarLanche(id) {
+        this.alert.create({
+            title: 'Atenção',
+            message: 'Deseja realmente excuir este item?',
+            buttons: [
+                {
+                    text: 'Não',
+                    role: 'cancel'
+                },
+                {
+                    text: 'Sim',
+                    handler: () => {
+                        this.rfence.child(id).remove();
+                    }
+                }
+
+            ]
+        }).present();
+    }
 }
